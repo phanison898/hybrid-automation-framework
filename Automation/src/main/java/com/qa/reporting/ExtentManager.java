@@ -5,13 +5,20 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 
+import org.apache.logging.log4j.Level;
 import org.openqa.selenium.Platform;
 
+import com.aventstack.extentreports.AnalysisStrategy;
 import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.model.ScreenCapture;
+import com.aventstack.extentreports.model.Test;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import com.qa.base.Configuration;
+
+import jdk.internal.net.http.common.Log;
 
 public class ExtentManager extends Configuration{
 	
@@ -47,15 +54,15 @@ public class ExtentManager extends Configuration{
 	}
 	
 	private static void htmlConfig() {
-		html.config().enableTimeline(true);
 		html.config().setDocumentTitle(config("reportName"));
-		html.config().setCSS(".r-img{width:450px;height:300px;}");
+		html.config().setCSS(".r-img{width:480px;height:270px;}");
 		html.config().setReportName("HtmlReport");
 		if(config("theme").equalsIgnoreCase("dark"))
 			html.config().setTheme(Theme.DARK);
 		else
 			html.config().setTheme(Theme.STANDARD);
 		html.config().setTimeStampFormat("yyyy:MM:dd hh:mm:ss SSS a");
+		
 	}
 	
 	private static String getCss() {
@@ -79,10 +86,4 @@ public class ExtentManager extends Configuration{
 		return str;
 		
 	}
-	public static void main(String[] args) {
-		String str = getCss();
-		System.out.println(str);
-	}
-	
-
 }
