@@ -27,8 +27,9 @@ public class JSutil extends TestUtil{
 		}
 	}
 
-	public void drawBorder(WebElement element) {
+	public static void drawBorder(WebElement element) {
 		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		js.executeScript("arguments[0].scrollIntoView(true);", element);
 		js.executeScript("arguments[0].style.border='3px solid red'", element);
 	}
 

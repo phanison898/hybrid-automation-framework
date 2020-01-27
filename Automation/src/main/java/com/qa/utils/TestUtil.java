@@ -20,33 +20,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 import com.qa.base.Base;
-import com.qa.reporting.TestManager;
 
 public class TestUtil extends Base {
-
-	public static String captureSnap() {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSS");
-		String path = System.getProperty("user.dir")+"/TestResults/snaps/"+sdf.format(new Date())+".png";
-		TakesScreenshot ss = ((TakesScreenshot) driver);
-		File src = ss.getScreenshotAs(OutputType.FILE);
-		File dest = new File(path);
-		try {
-			FileUtils.copyFile(src, dest);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return path;
-	}
-
-	public static void log(String log) {
-		TestManager.getTest().log(Status.INFO, log);
-		try {
-			TestManager.getTest().log(Status.INFO, "",
-					MediaEntityBuilder.createScreenCaptureFromPath(captureSnap()).build());
-		} catch (Exception e) {
-
-		}
-	}
 
 	public static void generateHtmlFile(String src, String dest) {
 		BufferedReader bf = null;

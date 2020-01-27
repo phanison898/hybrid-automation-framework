@@ -6,16 +6,12 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.events.WebDriverEventListener;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-
-import com.qa.reporting.WebDriverEvents;
+import com.qa.reporting.ExtentReport;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -31,15 +27,11 @@ public class Base extends Configuration {
 	
 	public Base() {
 		
-		
-
 	}
 
 	@BeforeMethod
 	public void start() {
 		initBrowser(config("browser"));
-		System.out.println(config("reportName"));
-		logger.info("this is a log");
 	}
 
 	@AfterMethod
@@ -54,35 +46,35 @@ public class Base extends Configuration {
 			WebDriverManager.chromedriver().setup();
 			e_driver = new ChromeDriver();
 			driver = new EventFiringWebDriver(e_driver);
-			eventListener = new WebDriverEvents();
+			eventListener = new ExtentReport();
 			driver.register(eventListener);
 			break;
 		case BrowserType.FIREFOX:
 			WebDriverManager.chromedriver().setup();
 			e_driver = new ChromeDriver();
 			driver = new EventFiringWebDriver(e_driver);
-			eventListener = new WebDriverEvents();
+			eventListener = new ExtentReport();
 			driver.register(eventListener);
 			break;
 		case BrowserType.EDGE:
 			WebDriverManager.chromedriver().setup();
 			e_driver = new ChromeDriver();
 			driver = new EventFiringWebDriver(e_driver);
-			eventListener = new WebDriverEvents();
+			eventListener = new ExtentReport();
 			driver.register(eventListener);
 			break;
 		case BrowserType.IE:
 			WebDriverManager.chromedriver().setup();
 			e_driver = new ChromeDriver();
 			driver = new EventFiringWebDriver(e_driver);
-			eventListener = new WebDriverEvents();
+			eventListener = new ExtentReport();
 			driver.register(eventListener);
 			break;
 		default:
 			WebDriverManager.chromedriver().setup();
 			e_driver = new ChromeDriver();
 			driver = new EventFiringWebDriver(e_driver);
-			eventListener = new WebDriverEvents();
+			eventListener = new ExtentReport();
 			driver.register(eventListener);
 			break;
 		}
