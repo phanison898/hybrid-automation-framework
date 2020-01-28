@@ -13,7 +13,7 @@ public class Tests extends JSutil{
 
 	@Test
 	public void test1() throws InterruptedException {
-		WebElement searchBox =driver.findElement(By.xpath("//button[@type='submit' and @name='websubmit']"));
+		WebElement searchBox =driver().findElement(By.xpath("//button[@type='submit' and @name='websubmit']"));
 		for(int i=0; i<=1; i++) {
 			drawBorder(searchBox);
 			searchBox.click();

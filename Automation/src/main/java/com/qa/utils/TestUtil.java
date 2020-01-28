@@ -6,19 +6,12 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.aventstack.extentreports.MediaEntityBuilder;
-import com.aventstack.extentreports.Status;
 import com.qa.base.Base;
 
 public class TestUtil extends Base {
@@ -98,9 +91,9 @@ public class TestUtil extends Base {
 	public WebElement getElement(By selector) {
 		WebElement element = null;
 		try {
-			WebDriverWait wait = new WebDriverWait(driver, 10);
+			WebDriverWait wait = new WebDriverWait(driver(), 10);
 			wait.until(ExpectedConditions.presenceOfElementLocated(selector));
-			element = driver.findElement(selector);
+			element = driver().findElement(selector);
 		} catch (Exception e) {
 			System.out.println("element could not be created");
 			e.printStackTrace();
@@ -126,7 +119,7 @@ public class TestUtil extends Base {
 	}
 
 	public String getPageTitle() {
-		return driver.getTitle();
+		return driver().getTitle();
 	}
 
 }
