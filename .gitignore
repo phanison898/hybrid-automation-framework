@@ -1,1 +1,11 @@
-/target/
+/target
+
+/.settings
+
+.classpath
+
+.project
+
+/test-output
+
+/TestResults
