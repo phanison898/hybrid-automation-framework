@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
-import org.apache.logging.log4j.Level;
 import org.openqa.selenium.Platform;
 
 import com.aventstack.extentreports.AnalysisStrategy;
