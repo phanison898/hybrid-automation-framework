@@ -20,7 +20,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Base extends Configuration {
 
-	private static ThreadLocal<EventFiringWebDriver> driver = new ThreadLocal<>();
+	protected static ThreadLocal<EventFiringWebDriver> driver = new ThreadLocal<>();
 
 	private static long PAGELOAD_TIME = 60;
 	private static long IMPLICIT_TIME = 5;
